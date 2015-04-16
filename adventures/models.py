@@ -28,14 +28,46 @@ class AdventureUser(models.Model):
 
   allergies = models.CharField(max_length=2000,null=True, blank=True)
   found_us = models.CharField(max_length=2000,null=True, blank=True)
+
   def __str__(self):
     return (self.first_name if self.first_name else "") + " " + (self.last_name if self.last_name else "")
+
+class Instructor(models.Model):
+  # Primary key
+  instructor_id_num = models.AutoField(primary_key=True)
+  name = models.CharField(max_length=255,null=True, blank=True)
+  bio = models.CharField(max_length=2000,null=True, blank=True)
+  def __str__(self):
+    return (self.name if self.name else "New Instructor")
 
 class Trip(models.Model):
   # Primary key
   trip_id_num = models.AutoField(primary_key=True)
 
   date = models.DateTimeField(default=timezone.now)
+  title = models.CharField(max_length=255,null=True, blank=True)
+  instructor = models.ForeignKey(Instructor)
+  intensity = models.IntegerField(default=0)
+  technicality = models.IntegerField(default=0)
+
+  description = models.CharField(max_length=8000,null=True, blank=True)
+  description2 = models.CharField(max_length=8000,null=True, blank=True)
+
+  meeting_location = models.CharField(max_length=2000,null=True, blank=True)
+  meeting_time = models.DateTimeField(default=timezone.now)
+  end_time = models.DateTimeField(default=timezone.now)
+  
+  things_to_bring = models.CharField(max_length=8000,null=True, blank=True)
+
+  trip_image = models.ImageField(upload_to="images/", blank=True, null=True)   
+
+  price = models.IntegerField(default=109)
+  
+  minimum_to_go = models.IntegerField(default=10)
+  
+  def __str__(self):
+    return self.date + ": " + (self.title if self.title else "New Trip")
+
 
 class UserTrips(models.Model):
   # Primary key
@@ -43,6 +75,8 @@ class UserTrips(models.Model):
   
   user = models.ForeignKey(AdventureUser)
   trip = models.ForeignKey(Trip)
+  def __str__(self):
+    return (self.user if self.user else "") + " : " + (self.trip if self.trip else "")
   class Meta:
     managed = True
     verbose_name_plural = 'User Trips'
