@@ -28,7 +28,9 @@ class AdventureUser(models.Model):
 
   allergies = models.CharField(max_length=2000,null=True, blank=True)
   found_us = models.CharField(max_length=2000,null=True, blank=True)
- 
+  def __str__(self):
+    return (self.first_name if self.first_name else "") + " " + (self.last_name if self.last_name else "")
+
 class Trip(models.Model):
   # Primary key
   trip_id_num = models.AutoField(primary_key=True)
@@ -41,4 +43,8 @@ class UserTrips(models.Model):
   
   user = models.ForeignKey(AdventureUser)
   trip = models.ForeignKey(Trip)
+  class Meta:
+    managed = True
+    verbose_name_plural = 'User Trips'
+
   

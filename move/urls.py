@@ -14,12 +14,13 @@ urlpatterns = patterns('',
   url(r'^chart', views.chart, name='chart'),
   url(r'^about', views.about, name='about'),
   url(r'^faq', views.faq, name='faq'),
+  url(r'^account', views.account, name='account'),
   url(r'^terms', views.terms, name='terms'),
   url(r'^contact', views.contact, name='contact'),
-  url(r'^account', views.account, name='account'),
   url(r'^register', views.register, name='register'),
+  url(r'^login', views.loggin, name='loggin'),
+  url(r'^logout', views.loggout, name='loggout'),
   url(r'^admin', include(admin.site.urls)),
-  url(r'^public', include(admin.site.urls)),
   url(r'^public/(?P<path>.*)$', 'django.views.static.serve', {
     'document_root': settings.STATIC_ROOT})
 )

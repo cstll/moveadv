@@ -1,0 +1,44 @@
+
+<!doctype html>
+<html class="no-js">
+{% include "elements/head.html" %}
+<body class="login-page">
+
+<!-- M A I N -->
+
+
+<div id="main">
+{% include "elements/header.html" %}
+
+<div class="row section">
+
+  <h1 class="page-title">Welcome, {{ user.username }}</h1>  
+
+  <h2 class="account">Purchased Adventures</h2>
+
+  <ul id="registered-adventures" class="item-list">
+  
+      <li>You don&#8217;t have any purchased adventures. What are you waiting for?</li>
+    
+  </ul>
+
+  <h2 class="account">Cancellations</h2>  
+  
+  <p>Need to cancel a fitness adventure? Please review our <a href="/terms">refund policy</a>.
+  <br>
+  If you meet the criteria specified, email <a href="mailto:info@moveadventures.com">info@moveadventures.com</a> with the following:</p> 
+  
+  <ul class="bullet-list">
+    <li>Your full name</li>
+    <li>The adventure you wish to cancel</li>
+    <li>The order number for your purchase (e.g. Order #200)</li>
+    <li>Your Move Adventures username / email address: {{ user.username }}</li>
+  </ul>
+</div>
+
+</div><!-- /main -->
+<div id="main-bottom"></div>
+{% include "elements/footer.html" %}
+
+</body>
+</html>

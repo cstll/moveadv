@@ -18,11 +18,44 @@
   <p class="page-description">Move Adventures promotes healthy and active lifestyles through specially designed outdoor fitness programs. Register below for a fitness adventure and begin transforming the way you exercise!</p>
 
   
+  {% if trips %}
+  {% for trip in trips %}
+    <article class="adventure">
+
+      <div class="col-2 first">
+        <time class="date" datetime="2015-04-16">Apr 16</time>
+      </div>
+
+      <div class="col-7">
+        <hgroup>
+          <h1 class="title"><a href="adventures/2455/circuit-climber4">Circuit Climber</a></h1>
+          <h2 class="subtitle">With Mo @ 10:54 pm</h2>
+        </hgroup>
+
+                <div class="description cms-content">
+          <ul>
+  <li>
+    <strong><em>Intermediate Intensity</em></strong></li>
+  <li>
+    <strong><em>Intermediate Terrain Technicality</em></strong></li>
+</ul>
+
+        </div>
+                
+      </div>
+
+      <div class="col-3">
+        <div class="button button-border button-closed">Sold Out</div>              </div>
+
+    </article>
+    <!-- /article -->
+    {% endfor %}
+    {% else %}
       <p class="message">
         Sorry, all of our trips are currently booked! <br> 
         Come back again soon to register for next weekend.
       </p>
-    
+    {% endif %}
 
 </section>
 
