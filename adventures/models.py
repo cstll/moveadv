@@ -29,6 +29,8 @@ class AdventureUser(models.Model):
   allergies = models.CharField(max_length=2000,null=True, blank=True)
   found_us = models.CharField(max_length=2000,null=True, blank=True)
 
+  trip_credits = models.IntegerField(default=0)
+
   def __str__(self):
     return (self.first_name if self.first_name else "") + " " + (self.last_name if self.last_name else "")
 
@@ -55,6 +57,7 @@ class Trip(models.Model):
 
   meeting_location = models.CharField(max_length=2000,null=True, blank=True)
   meeting_time = models.DateTimeField(default=timezone.now)
+  leaving_time = models.DateTimeField(default=timezone.now)
   end_time = models.DateTimeField(default=timezone.now)
   
   things_to_bring = models.CharField(max_length=8000,null=True, blank=True)
@@ -67,7 +70,6 @@ class Trip(models.Model):
   
   def __str__(self):
     return (self.title if self.title else "New Trip")
-
 
 class UserTrips(models.Model):
   # Primary key

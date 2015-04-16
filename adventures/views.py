@@ -33,7 +33,7 @@ def adventure(request, trip_id_num):
   args = {}
   args.update(csrf(request))
   args['user'] = request.user
-  args['trip'] = Trip.objects.get(trip_id_num=trip_id_num)
+  args['trip'] = Trip.objects.select_related('instructor').get(trip_id_num=trip_id_num)
   return render_to_response('pages/adventure.html',args)
 
 def package(request, path):
