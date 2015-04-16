@@ -66,7 +66,7 @@ class Trip(models.Model):
   minimum_to_go = models.IntegerField(default=10)
   
   def __str__(self):
-    return self.date + ": " + (self.title if self.title else "New Trip")
+    return (self.title if self.title else "New Trip")
 
 
 class UserTrips(models.Model):
@@ -76,7 +76,7 @@ class UserTrips(models.Model):
   user = models.ForeignKey(AdventureUser)
   trip = models.ForeignKey(Trip)
   def __str__(self):
-    return (self.user if self.user else "") + " : " + (self.trip if self.trip else "")
+    return (self.user.__str__() if self.user.__str__() else "") + " : " + (self.trip.__str__() if self.trip.__str__() else "")
   class Meta:
     managed = True
     verbose_name_plural = 'User Trips'

@@ -9,6 +9,7 @@ from adventures import views as views
 urlpatterns = patterns('',
   url(r'^$', views.home, name='home'),
   url(r'^adventures', views.adventures, name='adventures'),
+  url(r'^adventure/((?P<trip_id>.*)$)', views.adventure, name='adventure'),
   url(r'^packages$', views.packages, name='packages'),
   url(r'^package/((?P<path>.*)$)', views.package, name='package'),
   url(r'^chart', views.chart, name='chart'),

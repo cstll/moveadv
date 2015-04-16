@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.http.request import HttpRequest
 
 from django.conf import settings
+from django.utils import timezone
 
 # csrf
 from django.core.context_processors import csrf
@@ -23,8 +24,17 @@ def adventures(request):
   args = {}
   args.update(csrf(request))
   args['user'] = request.user
-  args['trips'] = Trips.objects.all()
+  args['trips'] = Trip.objects.all().exclude(
+    date__lt=timezone.now(),
+  )
   return render_to_response('pages/adventures.html',args)
+
+def adventure(request, trip_id_num):
+  args = {}
+  args.update(csrf(request))
+  args['user'] = request.user
+  args['trip'] = Trip.objects.get(trip_id_num=trip_id_num)
+  return render_to_response('pages/adventure.html',args)
 
 def package(request, path):
   args = {}

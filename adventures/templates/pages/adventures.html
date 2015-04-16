@@ -23,21 +23,21 @@
     <article class="adventure">
 
       <div class="col-2 first">
-        <time class="date" datetime="2015-04-16">Apr 16</time>
+        <time class="date" datetime="2015-04-16">{{ trip.date|date:'M j' }}</time>
       </div>
 
       <div class="col-7">
         <hgroup>
-          <h1 class="title"><a href="adventures/2455/circuit-climber4">Circuit Climber</a></h1>
-          <h2 class="subtitle">With Mo @ 10:54 pm</h2>
+          <h1 class="title"><a href="adventure/{{ trip.trip_id_num }}">Circuit Climber</a></h1>
+          <h2 class="subtitle">With {{ trip.instructor }} @ {{ trip.date|date:'g:i a' }}</h2>
         </hgroup>
 
                 <div class="description cms-content">
           <ul>
   <li>
-    <strong><em>Intermediate Intensity</em></strong></li>
+    <strong><em>Intensity: {% if trip.intensity == 0 %}Beginner{% elif trip.intensity == 1%}Intermediate{% else %}Hard{% endif %}</em></strong></li>
   <li>
-    <strong><em>Intermediate Terrain Technicality</em></strong></li>
+    <strong><em>Terrain Technicality: {% if trip.technicality == 0 %}Beginner{% elif trip.technicality == 1%}Intermediate{% else %}Hard{% endif %}</em></strong></li>
 </ul>
 
         </div>
