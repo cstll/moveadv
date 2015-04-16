@@ -1,20 +1,10 @@
 {% load staticfiles %}
 
-<!DOCTYPE html>
-<html lang="en">
-	{% block page_head %}
-	{% include "elements/page_head.html" %}
+<!doctype html>
+<html lang="en" class="no-js">
+	{% block head %}
+	{% include "elements/head.html" %}
 	{% endblock %}
 
-	<body>
-		{% block header %}
-		{% endblock %}
-
-		{% block body %}
-		{% endblock %}
-
-		{% block footer %}
-		{% endblock %}
-	</body>
 
 </html>

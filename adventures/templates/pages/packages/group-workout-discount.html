@@ -1,40 +1,6 @@
-
-
-
-
 <!doctype html>
 <html class="no-js">
-<head>
-  <meta charset="utf-8">
-  <title>Discount for Group Workout - Move Adventures</title>
-
-  <!-- M E T A -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="author" content="Move Adventures">
-
-  <!-- C S S -->
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400">
-  <link rel="stylesheet" href="/public/css/site.min.css?v=1360562727">
-
-  <!-- I C O N S -->
-  <link rel="shortcut icon" type="image/ico" href="favicon.ico">
-
-  <!-- S C R I P T S -->
-  <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-31285637-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-</head>
+{% include "elements/head.html" %}
 <body class="package-page">
 
 <!-- M A I N -->
@@ -42,30 +8,7 @@
 
 <div id="main">
 
-<header id="header" class="row section clearfix">
-  <h1 id="logo"><a href="/">Move Adventures</a></h1>
-
-  <div class="header-buttons">
-    <a href="/login">Log In</a> <a href="/register" class="button-sign-in">Free Newsletter</a>  <a href="http://facebook.com/MoveAdventures" class="facebook-button">
-    <img src="http://thmg.photobucket.com/albums/v505/paperleaf/Favicons/th_favicon_facebook.png" class="like-fav" width="16" height="18">Like Us!
-  </a>
-  </div>
-  
-  <nav class="nav-primary">
-    <ul>
-      <li><a class="home-link" href="/">Home</a></li>
-      <li><a class="adventures-link" href="/adventures">Fitness Adventures</a></li>
-      <li><a class="packages-link" href="/packages">Packages</a></li>
-      <li><a class="fitness-chart-link" href="/chart">Fitness Chart</a></li>
-      <li><a class="about-link" href="/about">About</a></li>
-      <li><a class="faqs-link" href="/faqs">FAQs</a></li>
-      <li><a class="contact-link" href="/contact">Contact</a></li>
-      <li><a class="account-link" href="//login">Account</a></li>
-    </ul>
-  </nav>
-  
-</header>
-
+{% include "elements/header.html" %}
 
 <div class="row section">
   <div class="col-9 first">
@@ -123,25 +66,7 @@
 </div><!-- /main -->
 <div id="main-bottom"></div>
 
-<!-- F O O T E R -->
-<footer id="footer">
-  <div class="row">
-    &copy; 2015 Move Adventures, LLC 
-    <br>
-    <!--
-    <a href="http://maps.google.com/maps?q=353+W+48th+St.+Ste+%23333+New+York,+NY+10036">
-        353 W 48th St. Ste #333 New York, NY 10036
-    </a> 
-    <br>
-    -->
-    <a href="mailto:info@moveadventures.com">info@moveadventures.com</a> | (347) 599 - 2815
-    <!--<a class="yorganic-link" href="http://yorganicnyc.com/" rel="nofollow"><span>Sponsored by Yorganic</span></a>-->
-  </div>
-</footer>
-
-<!-- J S -->
-<script src="/public/js/jquery.min.js?v=1338119176"></script>
-<script src="/public/js/concatenated.js?v=1340412325"></script>
+{% include "elements/footer.html" %}
 
 </body>
 </html>

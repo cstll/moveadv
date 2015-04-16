@@ -1,11 +1,14 @@
 from django.db import models
+from django.contrib.auth.models import User
+
+from django.utils import timezone
 
 class AdventureUser(models.Model):
   # Primary key
   user_id_num = models.AutoField(primary_key=True)
 
   # Underlying django user object - has username, email and password
-  django_user = models.ForeignKey(settings.AUTH_USER_MODEL)
+  django_user = models.ForeignKey(User)
 
   first_name = models.CharField(max_length=255,null=True, blank=True)
   last_name = models.CharField(max_length=255,null=True, blank=True)
@@ -17,6 +20,8 @@ class AdventureUser(models.Model):
   
   phone = models.CharField(max_length=255,null=True, blank=True)
   
+  gender = models.CharField(max_length=255,null=True, blank=True)
+
   bday_month = models.IntegerField(default=1)
   bday_day = models.IntegerField(default=1) 
   bday_year = models.IntegerField(default=0)

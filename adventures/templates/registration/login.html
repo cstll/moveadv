@@ -1,0 +1,56 @@
+
+<!doctype html>
+<html class="no-js">
+{% include "elements/head.html" %}
+<body class="login-page">
+
+<!-- M A I N -->
+
+
+<div id="main">
+
+{% include "elements/header.html" %}
+
+<div class="row section">
+
+  <h1 class="page-title">Login</h1>
+  <p class="page-description">Login below to access your account.</p>
+  
+  <ul class="item-list">
+    <li>Don&#8217;t have an account? <a href="http://moveadventures.com/user/register" class="highlight">Register here</a>.</li>
+    <li>Did you <a href="http://moveadventures.com/user/forgot" class="highlight">forget your password</a>?</li>
+  </ul>
+
+  <form id="login-form" method="post" action="">
+    <input type="hidden" name="62195102eb0446beba172c2b41f07872d2ebf6dd" value="">
+    <input type="hidden" name="ACT" value="7">
+    <input type="hidden" name="RET" value="/account">
+    <input type="hidden" name="FROM" value="">
+    <input type="hidden" name="site_id" value="1">
+    <input type="hidden" name="auto_login" value="1">
+    <input type="hidden" name="anon" value="1">
+  
+    <div class="row">
+      <label for="login-form-username">Email</label>
+      <input type="text" name="username" value="" id="login-form-username" class="input-text">
+    </div>
+  
+    <div class="row">
+      <label for="login-form-password">Password</label>
+      <input type="password" name="password" value="" id="login-form-password" class="input-text">
+    </div>
+  
+    <div class="row">
+      <input type="submit" name="submit" value="Login" class="input-submit button button-l">  
+    </div>
+  </form>
+
+</div>
+
+</div><!-- /main -->
+<div id="main-bottom"></div>
+
+{% include "elements/footer.html" %}
+
+</body>
+</html>
