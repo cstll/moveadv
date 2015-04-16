@@ -1,0 +1,45 @@
+{% load staticfiles %}
+<nav id='navbar' class="navbar navbar-default navbar-fixed-top">
+	<div id='navigation_container' class="container-fluid">
+
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed navbutton-left {% if nav.leftbutton.style %}{{ nav.leftbutton.style }}{% else %}navbutton-default{% endif %}" data-toggle="collapse" data-target="#navigation-left"{% if nav.leftbutton.disabled %} disabled="true"{% endif %}>
+				<ul class="nav">
+					<li class="dropdown">				
+						<span class='navbutton-content dropdown-toggle' data-toggle="dropdown" role="button" aria-expanded="false">{% if nav.leftbutton.info %}{{ nav.leftbutton.info | safe }}{% else %}<i class="fa fa-bars fa-lg"></i>{% endif %}</span>
+						{% if nav.leftbutton.dropdown %}
+						{% include "elements/navbar_components/dropdown_menu.html" %}
+						{% endif %}
+					</li>
+				</ul>
+			</button>
+
+			<button id='navbutton_right' type="submit" class="navbar-toggle collapsed navbutton-right {% if nav.rightbutton.style %}{{ nav.rightbutton.style }}{% else %}navbutton-default{% endif %}" data-toggle="collapse" data-target="#navigation-right"{% if nav.rightbutton.disabled %} disabled="true"{% endif %}>
+				<a id='navbutton_right_url' href="{% if nav.rightbutton.url %}{{ nav.rightbutton.url }}{% endif %}">
+					<span id='navbutton_right_contentmore_left' class='navbutton-content-more'>{% if nav.rightbutton.moreleft %}{{ nav.rightbutton.moreleft }}{% endif %}</span> <span id='navbutton_right_content' class='navbutton-content'>{% if nav.rightbutton.info > -1 %}{{ nav.rightbutton.info | safe }}{% else %}<i class="fa fa-graduation-cap fa-lg"></i>{% endif %}</span> <span id='navbutton_right_contentmore_right' class='navbutton-content-more'>{% if nav.rightbutton.moreright %}{{ nav.rightbutton.moreright }}{% endif %}</span>
+				</a>
+			</button>
+
+			<a class="navbar-brand" href="/">Bark Adventures</a>
+
+			{% if not nav.leftbutton.disabled %}
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ nav.leftbutton.expanded_text }}{% if nav.leftbutton.dropdown %} <i class="fa fa-caret-down"></i>{% endif %}</a>
+						{% if nav.leftbutton.dropdown %}
+						{% include "elements/navbar_components/dropdown_menu.html" %}
+						{% endif %}
+					</li>
+				</ul>
+			</div>
+			{% endif %}
+
+		</div>
+
+	</div>
+
+	<div id='progress_container' class='progress'>
+		<div id='progress_bar' class='progress-bar {% if nav.progressbar.style %}{{ nav.progressbar.style }}{% else %}progress-bar-default{% endif %}' role='progressbar' aria-valuenow='{% if nav.progressbar.progress %}{{ nav.progressbar.progress }}{% else %}0{% endif %}' style='width: {% if nav.progressbar.progress %}{{ nav.progressbar.progress }}{% else %}0{% endif %}%;' aria-valuemin='0' aria-valuemax='{% if nav.progressbar.max %}{{ nav.progressbar.max }}{% else %}100{% endif %}'></div>
+	</div>
+</nav>
