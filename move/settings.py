@@ -24,7 +24,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-TEMPLATE_DIRS = ("/Users/karencastelletti/Desktop/move/adventures/templates",)
+TEMPLATE_DIRS = ("/Users/karencastelletti/Desktop/moveadv/adventures/templates",)
 
 ALLOWED_HOSTS = []
 
